@@ -10,16 +10,24 @@ function renderShoes() {
     const shoes = getShoes(); //getShoesForDisplay();
     const strHtmls = shoes.map((shoe) => {
         return `<ul class="${getListStyle()}" onclick="onOpenModalDetails('${shoe.id}')">
-            <li><p>ID: <span>${shoe.id}</span></p></li>
-            <li><p>Company: <span>${shoe.vendor}</span></p></li>
-            <li><p>Model: <span>${shoe.model}</span></p></li>
+        <div class="list-head">
+            <li><p><span data-trans="id">ID</span><span>${shoe.id}</span></p></li>
             <li><img src="${shoe.imgUrl}" alt=""></li>
-            <li><p>Price: <span>${shoe.price}</span></p></li>
-            <li><p>Rating: <span>${shoe.rating}</span></p></li>
-            <div class="action-box">
-                <li><button class="btn btn-update btn-orange" onclick="onUpdateShoe(event, '${shoe.id}')">${getBtnUpdateHTML()}</button></li>
-                <li><button class="btn btn-delete btn-red" onclick="onRemoveShoe(event, '${shoe.id}')">${getBtnDeleteHTML()}</button></li>
+        </div>
+        <div class="list-body">
+            <div class="list-body-box">
+                <li><p><span data-trans="company">Company</span><span>${shoe.vendor}</span></p></li>
+                <li><p><span data-trans="model">Model</span><span>${shoe.model}</span></p></li>
             </div>
+            <div class="list-body-box">
+                <li><p><span data-trans="price">Price</span><span>${shoe.price}</span></p></li>
+                <li><p><span data-trans="rating">Rating</span><span>${shoe.rating}</span></p></li>
+            </div>
+        </div>
+        <div class="action-box">
+            <li><button class="btn btn-update btn-orange" onclick="onUpdateShoe(event, '${shoe.id}')">${getBtnUpdateHTML()}</button></li>
+            <li><button class="btn btn-delete btn-red" onclick="onRemoveShoe(event, '${shoe.id}')">${getBtnDeleteHTML()}</button></li>
+        </div>
         </ul>`;
     });
     elSectionDB.innerHTML = strHtmls.join("");
@@ -191,4 +199,15 @@ function orderList(str) {
             list.classList.remove("list-list");
         });
     }
+}
+
+function onSetLang(lang) {
+    setLang(lang);
+    var elBody = document.querySelector('.rtl-container')
+    if(lang === 'he'){
+       elBody.classList.add('rtl')
+    } else {
+        elBody.classList.remove('rtl')
+    }
+    doTrans();
 }

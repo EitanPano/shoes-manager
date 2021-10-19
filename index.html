@@ -11,14 +11,23 @@
 
 <body onload="onInit()" onclick="closeAllModals()">
 
-    <h1>ShoesLogo</h1>
+    <nav class="top-nav">
+        <h1>ShoesLogo</h1>
+        <div class="lang-box">
+            <p>Lang: &nbsp</p>
+            <select onchange="onSetLang(this.value)">
+                <option value="en">EN</option>
+                <option value="he">HE</option>
+            </select>
+        </div>
+    </nav>
 
+<div class="rtl-container">
     <div class="listing-box">
-        <button class="btn btn-list" onclick="onOrderList()"><img src="icons/card-interface.png" alt="list_icon"></button>
+        <button class="btn btn-list" onclick="onOrderList()"><img src="icons/card-interface.png"
+                alt="list_icon"></button>
         <hr class="hr-top">
     </div>
-
-
 
     <div class="modal-new hidden" onclick="event.stopPropagation()">
         <div class="naming-container">
@@ -65,9 +74,11 @@
         <button class="prev-page" onclick="onPrevPage()">◀</button>
         <button class="next-page" onclick="onNextPage()">▶</button>
     </div>
+</div>
 
     <script src="js/service/utils-service.js"></script>
     <script src="js/service/storage-service.js"></script>
+    <script src="js/service/i18n-service.js"></script>
     <script src="js/service/shoes.service.js"></script>
     <script src="js/shoes.controller.js"></script>
     <script src="js/main.js"></script>

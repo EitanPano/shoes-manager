@@ -3,4 +3,5 @@
 function onInit() {
     console.log("Ready");
     renderShoes();
+    doTrans()
 }
