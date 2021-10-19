@@ -165,6 +165,8 @@ function onOrderList() {
 function orderList(str) {
     if (str === "LIST") {
         gElListStyleCard = false;
+        elSectionDB.classList.remove('direction-row');
+        elSectionDB.classList.add('direction-col');
         const elBtnList = document.querySelector(".btn-list");
         elBtnList.innerHTML = `<img src="icons/list-interface.png" alt="list_icon">`;
         const elLists = document.querySelectorAll(".db-render ul");
@@ -178,6 +180,8 @@ function orderList(str) {
         });
     } else if (str === "CARD") {
         gElListStyleCard = true;
+        elSectionDB.classList.remove('direction-col');
+        elSectionDB.classList.add('direction-row');
         const elBtnList = document.querySelector(".btn-list");
         elBtnList.innerHTML = `<img src="icons/card-interface.png" alt="card_icon">`;
         const elLists = document.querySelectorAll(".db-render ul");
@@ -201,6 +205,7 @@ function onSetLang(lang) {
         elBody.classList.remove('rtl')
     }
     doTrans();
+    renderShoes();
 }
 
 function onNextPage() {

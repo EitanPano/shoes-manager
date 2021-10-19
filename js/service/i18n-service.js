@@ -68,11 +68,7 @@ function getTrans(dataStr) {
 
 function doTrans() {
     const els = document.querySelectorAll("[data-trans]");
-    const elBtnDelete = document.querySelector('.btn-delete');
-    const elBtnUpdate = document.querySelector('.btn-update');
     els.forEach((el) => {
-        if (!gElListStyleCard && el === elBtnDelete ||
-            !gElListStyleCard && el === elBtnUpdate) return; 
         const dataTransStr = el.dataset.trans;
         el.innerText = getTrans(dataTransStr);
     });

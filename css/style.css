@@ -259,6 +259,15 @@ h1 {
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
+    transition: all 0.2s;
+}
+
+.direction-col {
+    flex-direction: column;
+}
+
+.direction-row {
+    flex-direction: row;
 }
 
 .list-card {
