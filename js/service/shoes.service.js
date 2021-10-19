@@ -86,12 +86,12 @@ function _resetSortBy() {
     gSortBy.rating = true;
 }
 
-function _createShoe(vendor, model, price = 199, description = makeLorem(60), imgUrl) {
+function _createShoe(imgUrl, vendor, model, price = 199, description = makeLorem(60)) {
     const shoe = {
         id: makeId(),
+        imgUrl,
         vendor,
         model,
-        imgUrl,
         description,
         price,
         rating: 0,
@@ -103,9 +103,9 @@ function _createShoes() {
     let shoes = loadFromStorage("ShoesDB");
     if (!shoes || !shoes.length) {
         shoes = [
-            _createShoe("Nike", "Zoom", "./img/nike_zoom.jpg"),
-            _createShoe("Crocs", "Sharkey", "./img/crocs_shark.jpg"),
-            _createShoe("Adidas", "Ultraboost", "./img/adidas_ultraboost.jpg"),
+            _createShoe("img/nike_zoom.jpg", "Nike", "Zoom"),
+            _createShoe("img/crocs_shark.jpg", "Crocs", "Sharkey"),
+            _createShoe("img/adidas_ultraboost.jpg", "Adidas", "Ultraboost"),
         ];
     }
     gShoes = shoes;
