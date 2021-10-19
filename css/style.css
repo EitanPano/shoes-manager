@@ -110,6 +110,7 @@ h1 {
     width: 90vw;
     max-width: 800px;
     margin: 50px auto 10px;
+    direction: ltr;
 }
 
 .btn-list {
@@ -296,7 +297,6 @@ h1 {
 .list-card li p span:nth-child(1) {
     width: 100%;
 }
-
 
 .list-card img {
     width: 160px;

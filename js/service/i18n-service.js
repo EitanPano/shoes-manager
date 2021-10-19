@@ -21,6 +21,39 @@ const gTrans = {
         en: "Rating :",
         he: "דירוג :",
     },
+    cancel: {
+        en: "Cancel",
+        he: "ביטול",
+    },
+    new: {
+        en: "New +",
+        he: "חדש +",
+    },
+    sort: {
+        en: "Sort by :",
+        he: "מיין לפי :",
+    },
+    NAME: {
+        en: "Name",
+        he: "שם",
+    },
+    PRICE: {
+        en: "Price",
+        he: "מחיר",
+    },
+    RATING: {
+        en: "Rating",
+        he: "דירוג",
+    },
+    delete: {
+        en: "Delete",
+        he: "מחיקה",
+    },
+    update: {
+        en: "Update",
+        he: "עדכון",
+    },
+    
 };
 
 let gCurrLang = "en";

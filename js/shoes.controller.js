@@ -25,8 +25,8 @@ function renderShoes() {
             </div>
         </div>
         <div class="action-box">
-            <li><button class="btn btn-update btn-orange" onclick="onUpdateShoe(event, '${shoe.id}')">${getBtnUpdateHTML()}</button></li>
-            <li><button class="btn btn-delete btn-red" onclick="onRemoveShoe(event, '${shoe.id}')">${getBtnDeleteHTML()}</button></li>
+            <li><button data-trans="delete" class="btn btn-update btn-orange" onclick="onUpdateShoe(event, '${shoe.id}')">${getBtnUpdateHTML()}</button></li>
+            <li><button data-trans="update" class="btn btn-delete btn-red" onclick="onRemoveShoe(event, '${shoe.id}')">${getBtnDeleteHTML()}</button></li>
         </div>
         </ul>`;
     });
@@ -141,7 +141,7 @@ function openModalNew() {
     elModalNew.classList.remove("hidden");
     elBtnNew.classList.remove("btn-green");
     elBtnNew.classList.add("btn-red");
-    elBtnNew.innerText = "Cancel";
+    elBtnNew.innerText = getTrans("cancel");
 }
 
 function closeModalNew() {
@@ -151,7 +151,7 @@ function closeModalNew() {
     elModalNew.classList.add("hidden");
     elBtnNew.classList.add("btn-green");
     elBtnNew.classList.remove("btn-red");
-    elBtnNew.innerText = "New +";
+    elBtnNew.innerText = getTrans("new");
 }
 
 function getBtnDeleteHTML() {
@@ -193,8 +193,8 @@ function orderList(str) {
         elLists.forEach((list) => {
             const elBtnDelete = list.querySelector(".btn-delete");
             const elBtnUpdate = list.querySelector(".btn-update");
-            elBtnDelete.innerText = "Delete";
-            elBtnUpdate.innerText = "Update";
+            elBtnDelete.innerText = getTrans("delete");
+            elBtnUpdate.innerText = getTrans("update");
             list.classList.add("list-card");
             list.classList.remove("list-list");
         });

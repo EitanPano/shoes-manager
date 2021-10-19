@@ -53,12 +53,12 @@
     </div>
 
     <div class="menu-container">
-        <button class="btn btn-new btn-green" onclick="onToggleModalNew(event)">New +</button>
+        <button data-trans="new" class="btn btn-new btn-green" onclick="onToggleModalNew(event)">New +</button>
         <div class="sorting-box">
-            <p>Sort by :</p>
-            <button class="btn" value="NAME" onclick="onSetSort(this.value)">Name</button>
-            <button class="btn" value="PRICE" onclick="onSetSort(this.value)">Price</button>
-            <button class="btn" value="RATING" onclick="onSetSort(this.value)">Rating</button>
+            <p data-trans="sort">Sort by :</p>
+            <button data-trans="NAME" class="btn" value="NAME" onclick="onSetSort(this.value)">Name</button>
+            <button data-trans="PRICE" class="btn" value="PRICE" onclick="onSetSort(this.value)">Price</button>
+            <button data-trans="RATING" class="btn" value="RATING" onclick="onSetSort(this.value)">Rating</button>
         </div>
     </div>
 
