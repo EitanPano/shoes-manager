@@ -103,9 +103,9 @@ function _createShoes() {
     let shoes = loadFromStorage("ShoesDB");
     if (!shoes || !shoes.length) {
         shoes = [
-            _createShoe("Nike", "Zoom", "img/nike_zoom.jpg"),
-            _createShoe("Crocs", "Sharkey", "img/crocs_shark.jpg"),
-            _createShoe("Adidas", "Ultraboost", "img/adidas_ultraboost.jpg"),
+            _createShoe("Nike", "Zoom", "./img/nike_zoom.jpg"),
+            _createShoe("Crocs", "Sharkey", "./img/crocs_shark.jpg"),
+            _createShoe("Adidas", "Ultraboost", "./img/adidas_ultraboost.jpg"),
         ];
     }
     gShoes = shoes;
