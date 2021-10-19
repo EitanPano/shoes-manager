@@ -7,30 +7,32 @@ let gElModalOpen = false;
 let gElListStyleCard = true;
 
 function renderShoes() {
-    const shoes = getShoes(); //getShoesForDisplay();
+    const shoes = getShoes();
     const strHtmls = shoes.map((shoe) => {
         return `<ul class="${getListStyle()}" onclick="onOpenModalDetails('${shoe.id}')">
         <div class="list-head">
-            <li><p><span data-trans="id">ID</span><span>${shoe.id}</span></p></li>
+            <li><p><span data-trans="id">${getTrans('id')}</span><span>${shoe.id}</span></p></li>
             <li><img src="${shoe.imgUrl}" alt=""></li>
         </div>
         <div class="list-body">
             <div class="list-body-box">
-                <li><p><span data-trans="company">Company</span><span>${shoe.vendor}</span></p></li>
-                <li><p><span data-trans="model">Model</span><span>${shoe.model}</span></p></li>
+                <li><p><span data-trans="company">${getTrans('company')}</span><span>${shoe.vendor}</span></p></li>
+                <li><p><span data-trans="model">${getTrans('model')}</span><span>${shoe.model}</span></p></li>
             </div>
             <div class="list-body-box">
-                <li><p><span data-trans="price">Price</span><span>${shoe.price}</span></p></li>
-                <li><p><span data-trans="rating">Rating</span><span>${shoe.rating}</span></p></li>
+                <li><p><span data-trans="price">${getTrans('price')}</span><span>${shoe.price}</span></p></li>
+                <li><p><span data-trans="rating">${getTrans('rating')}</span><span>${shoe.rating}</span></p></li>
             </div>
         </div>
         <div class="action-box">
-            <li><button data-trans="delete" class="btn btn-update btn-orange" onclick="onUpdateShoe(event, '${shoe.id}')">${getBtnUpdateHTML()}</button></li>
-            <li><button data-trans="update" class="btn btn-delete btn-red" onclick="onRemoveShoe(event, '${shoe.id}')">${getBtnDeleteHTML()}</button></li>
+            <li><button data-trans="update" class="btn btn-update btn-orange" onclick="onUpdateShoe(event, '${shoe.id}')">${getBtnUpdateHTML()}</button></li>
+            <li><button data-trans="delete" class="btn btn-delete btn-red" onclick="onRemoveShoe(event, '${shoe.id}')">${getBtnDeleteHTML()}</button></li>
         </div>
         </ul>`;
     });
     elSectionDB.innerHTML = strHtmls.join("");
+    document.querySelector('.current-page').innerText = getCurrPage();
+    document.querySelector('.pages-count').innerText = getPagesCount();
 }
 
 function renderShoeDetails(shoeId) {
@@ -112,20 +114,9 @@ function onRemoveShoe(ev, shoeId) {
     renderShoes();
 }
 
-function onNextPage() {
-    nextPage();
-    renderShoes();
-}
-
-function onPrevPage() {
-    prevPage();
-    renderShoes();
-}
-
 function closeAllModals() {
     closeModalNew();
 }
-
 
 // VIEW
 function onToggleModalNew(ev) {
@@ -210,4 +201,14 @@ function onSetLang(lang) {
         elBody.classList.remove('rtl')
     }
     doTrans();
+}
+
+function onNextPage() {
+    nextPage();
+    renderShoes();
+}
+
+function onPrevPage() {
+    prevPage();
+    renderShoes();
 }

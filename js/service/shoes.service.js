@@ -12,13 +12,6 @@ let gSortBy = {
 
 _createShoes();
 
-function getShoes() {
-    let shoes = gShoes;
-    const fromIdx = gPageIdx * PAGE_SIZE;
-    shoes = shoes.slice(fromIdx, fromIdx + PAGE_SIZE);
-    return shoes;
-}
-
 function addShoe(vendor, model, price, description, imgUrl) {
     gShoes.push(_createShoe(vendor, model, price, description, imgUrl));
     _saveShoesToStorage();
@@ -123,6 +116,13 @@ function _saveShoesToStorage() {
     saveToStorage("ShoesDB", gShoes);
 }
 
+function getShoes() {
+    let shoes = gShoes;
+    const fromIdx = gPageIdx * PAGE_SIZE;
+    shoes = shoes.slice(fromIdx, fromIdx + PAGE_SIZE);
+    return shoes;
+}
+
 function nextPage() {
     if (gShoes.length <= (gPageIdx + 1) * PAGE_SIZE) return;
     gPageIdx++;
@@ -131,4 +131,12 @@ function nextPage() {
 function prevPage() {
     if (gPageIdx * PAGE_SIZE <= 0) return;
     gPageIdx--;
+}
+
+function getCurrPage() {
+    return gPageIdx + 1;
+}
+
+function getPagesCount() {
+    return Math.ceil(gShoes.length / PAGE_SIZE);
 }
